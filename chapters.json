@@ -1,0 +1,21 @@
+[
+    {
+        "label": "Prologue",
+        "scenes": [
+            {
+                "name": "Sample Script",
+                "file": "sample"
+            }
+        ]
+    },
+    
+    {
+        "label": "To be continued...",
+        "scenes": [
+            {
+                "name": "To be continued...",
+                "file": "tbc"
+            }
+        ]
+    }
+]

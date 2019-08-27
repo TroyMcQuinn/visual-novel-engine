@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+  
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+    <title>The 2214 Saga Visual Novel</title>
+    <meta name="description" content="The 2214 Saga reboot!  From web comic to interactive visual novel format." />
+  
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="noie.js"></script>
+    <script src="main.js"></script>
+    
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+    
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="rss/" />
+
+  </head>
+  
+  <body id="body" onload="start();">
+  
+    <noscript>
+    
+      <style type="text/css">#nav_buttons, #stage{display: none;}</style>
+    
+      <p>This site requires JavsScript to function.  Please enable it if possible.</p>
+    
+    </noscript>
+  
+    <div id="stage">
+      
+      <div id="layer1" class="layer_hide"></div>
+      <div id="layer2" class="layer_hide"></div>
+      <div id="layer3" class="layer_hide"></div>
+      <div id="layer4" class="layer_hide"></div>
+      <div id="layer5" class="layer_hide"></div>
+      <div id="layer6" class="layer_hide"></div>
+      
+      <div id="video_layer" class="layer_hide">
+        <video muted="muted" id="video"></video>
+      </div>
+      
+      <div id="scroller" class="layer_hide">
+        <div id="scrolltext" style="top: 0px"></div>
+      </div>
+      
+      <div id="card" class="layer_hide"></div>
+      
+      <div id="fade_layer" class="layer_hide"></div>
+      
+      <div id="dialogue" onclick="next();" class="dialogue_off" >
+        <div id="dialogue_title">Character Name</div>
+        <div id="dialogue_text">Dialogue Text</div>
+      </div>
+    
+    </div>
+    
+    <div id="nav_buttons" class="menu_show">
+    
+      <button id="first" onclick="first();" class="nav_button" title="Start from beginning"><img src="img/buttons/first.png" alt="Start from beginning" title="Start from beginning" /></button>
+      <button id="prev" onclick="prev();" class="nav_button" title="Previous scene"><img src="img/buttons/skip_back.png" alt="Previous scene" title="Previous scene" /></button>
+      <button id="back" onclick="back();" class="nav_button" title="Restart scene"><img src="img/buttons/restart.png" alt="Restart scene" title="Restart scene" /></button>
+      <button id="next" onclick="next();" class="nav_button" title="Next"><img src="img/buttons/next.png" alt="Next" title="Next" /></button> 
+      <button id="skip" onclick="skip();" class="nav_button" title="Skip to next scene"><img src="img/buttons/skip_next.png" alt="Skip to next scene" title="Skip to next scene" /></button> 
+      <button id="last" onclick="last();" class="nav_button" title="Skip to the latest scene"><img src="img/buttons/last.png" alt="Skip to the latest scene" title="Skip to the latest scene" /></button>
+      <button id="menu_button" onclick="toggleMenu();" class="nav_button" title="Menu"><img src="img/buttons/menu.png" alt="Menu" title="Menu" /></button>
+      <a href="#" id="link_button" class="nav_button" title="Link to this scene"><img src="img/buttons/link.png" alt="Link to this scene" title="Link to this scene" /></a>
+      <button id="fs_button" onclick="toggleFullScreen();" class="nav_button" title="Full Screen"><img src="img/buttons/fullscreen.png" alt="Full Screen" title="Full Screen" /></button> 
+      
+    </div>
+    
+    <div id="debug_view">[DEBUG_DATA]</div>
+    
+    <div id="menu" class="menu_hide">
+    
+      <div id="menu_buttons">
+      
+        <button id="menu_close_button" onclick="toggleMenu();" class="nav_button" title="Exit menu"><img src="img/buttons/exit.png" alt="Exit menu" title="Exit menu" /></button> 
+        <button id="menu_fs_button" onclick="toggleFullScreen();" class="nav_button" title="Full Screen"><img src="img/buttons/fullscreen.png" alt="Full Screen" title="Full Screen" /></button>      
+      
+      </div>
+      
+      <div class="menu_label">Audio</div>
+    
+      <div id="controls" class="menu_section">
+        
+        <table>
+        
+          <tr>
+            <td><label for="music_volume">Music</label></td>
+            <td><input name="music_volume" id="music_volume" type="range" min="0" max="10" value="5" onchange="setMusicVolume(this.value);" /></td>
+          </tr>
+
+          <tr>
+            <td><label for="sfx_volume">Sound Effects</label></td>
+            <td><input name="sfx_volume" id="sfx_volume" type="range" min="0" max="10" value="7" onchange="setSFXVolume(this.value);" /></td>
+          </tr>
+          
+        </table>
+      
+      </div>
+      
+      <div class="menu_label">Text</div>
+    
+      <div class="menu_section">
+        
+        <table>
+        
+          <tr>
+            <td><label for="music_volume">Message Speed</label></td>
+            <td><input name="music_volume" id="message_speed" type="range" min="10" max="50" value="30" onchange="setMessageSpeed(this.value);" /></td>
+          </tr>
+          
+        </table>
+      
+      </div>
+      
+      <div class="menu_label">Navigation</div>
+    
+      <div id="chapter_navigation" class="menu_section">
+      
+        <select id="chapter_navigation_menu" name="chapter_navigation_menu" onchange="navigateToScript(this.value);">
+        
+        </select>
+      
+      </div>
+      
+      <div class="menu_label">Keyboard Shortcuts</div>
+    
+      <div id="keyboard_shortcuts" class="menu_section">
+      
+        <table>
+          <tr><td><button class="keyboard">SPACE</button> OR <button class="keyboard">&rarr;</button></td><td>Advance to next frame</td></tr>
+          <tr><td><button class="keyboard">ENTER</button></td><td>Toggle full screen mode</td></tr>        
+        </table>
+        
+        <table>
+          <tr><td><button class="keyboard">&larr;</button></td><td>Restart current scene</td></tr>
+          <tr><td><button class="keyboard">&uarr;</button></td><td>Skip to next scene</td></tr>
+          <tr><td><button class="keyboard">&darr;</button></td><td>Jump back to previous scene</td></tr>
+        </table>        
+        
+        <div style="clear: both;"></div>
+      
+      </div>
+    
+    
+    </div>
+    
+    <div id="preloads" style="display: none;"></div>
+  
+  </body>
+  
+</html>

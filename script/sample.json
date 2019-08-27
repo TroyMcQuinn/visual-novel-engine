@@ -1,0 +1,44 @@
+[
+
+  {
+    "layer1":"clear",
+    "layer2":"clear",
+    "layer3":"clear",
+    "layer4":"clear",
+    "layer5":"clear",
+    "music":"clear",
+    "sfx":"clear",
+    "video":"clear",
+    "background":"nitrocosm_logo.png",
+    "text":"Welcome to the Nitrocosm visual novel engine."
+  },
+  
+  {
+    "layer1":"character1.png",
+    "layer2":"character2.png",
+    "layer3":"character3.png",
+    "layer4":"character4.png",
+    "layer5":"character5.png",
+    "music":"sample_music.mp3",
+    "sfx":"sample_sfx.mp3",
+    "video":"sample_video.mp4",
+    "background":"clear",
+    "text":"This system uses JSON files as scripts.  Assets are loaded through these files as well."
+  },
+  
+  {
+    "name":"Nitrocosm",
+    "text":"All elements should be set or reset in the first section of each script.  Elements in subsequent sections are optional."
+  },
+  
+  {
+    "name":"Nitrocosm",
+    "text":"The name field is optional and is used to depict which character (or narrator) is speaking."
+  }
+  
+  
+  
+  
+
+
+]
