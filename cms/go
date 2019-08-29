@@ -1,0 +1,12 @@
+<?php
+
+/**
+* Logic for parsing the URL and creating input variables
+*/
+
+// Set error reporting
+error_reporting(E_ALL);
+//error_reporting(0);
+
+// On to the main page
+include_once('./index.php');
