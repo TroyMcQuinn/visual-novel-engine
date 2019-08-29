@@ -1,0 +1,1 @@
+You'll need the font "animeace2_ital.ttf" or something similar in this directory.
