@@ -1,0 +1,259 @@
+@font-face{ 
+  font-family: AnimeAce;
+  font-weight: normal;
+  src: url('./fonts/animeace2_ital.ttf');  
+}
+
+@font-face{
+  font-family: TerminalDosis;
+  font-weight: normal;
+  src: url('../fonts/TerminalDosis-Regular.ttf');
+}
+
+@font-face{
+  font-family: TerminalDosis;
+  font-weight: lighter;
+  src: url('../fonts/TerminalDosis-ExtraLight.ttf');
+}
+
+@font-face{
+  font-family: TerminalDosis;
+  font-weight: bold;
+  src: url('../fonts/TerminalDosis-Bold.ttf');
+}
+
+body{
+  background-color: #003366;
+  margin: 0px;
+  margin-top: 80px;
+  padding-bottom: 200px;
+  min-width: 200px;
+}
+
+h1{
+  color: #FFFFFF;
+  margin: auto;
+  width: 100%;
+  text-align: center;
+}
+
+#fixed_header{
+  width: 100%;
+  height: 64px;
+  background-color: rgba(255,255,255,0.88);
+  position: fixed;
+  top: 0px;
+  border-style: solid;
+  border-width: 0px;
+  border-bottom-width: 2px;
+  box-shadow: 0px 8px 8px rgba(0,0,0,0.4);
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+#scene_selector{
+  display: block;
+  margin: auto;
+  margin-top: 16px;
+}
+
+.panel, .scroll, .card, .panel_img{
+  width: 720px;
+  height: 405px;
+  min-width: 200px;
+  border-color: #000000;
+  border-width: 2px;
+  border-style: solid;
+  box-shadow: 8px 8px 8px rgba(0,0,0,0.4);
+  border-radius: 2px;
+  margin: 18px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #000000;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
+}
+
+.panel_img{
+  display: none;
+}
+
+.textbox{
+  width: 80%;
+  background-color: rgba(255,255,255,0.9);
+  margin: auto;
+  margin-top: 280px;
+  height: 100px;
+  box-sizing: border-box;
+  padding: 16px;
+  font-family: AnimeAce, "Comic Sans", sans-serif;
+  border-radius: 16px;
+  overflow: hidden;
+  border-color: #000000;
+  border-width: 1px;
+  border-style: solid;
+  box-shadow: 4px 4px 2px rgba(0,0,0,0.7);
+}
+
+.scroll, .card, h1{
+  font-family: "TerminalDosis", Impact, Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  color: #FFFFFF;
+}
+
+h1{
+  font-weight: bold;
+}
+
+.scroll{
+  height: auto;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 16px;
+}
+
+.scroll table{
+  width: 100%;
+  margin: auto;
+}
+
+.scroll td{
+  text-align: left;
+}
+
+.card{
+  font-size: 44px;
+  font-variant: small-caps;
+  text-align: center;
+  box-sizing: border-box;
+  padding-top: 120px;
+}
+
+.nav_button, .nav_button_disabled{
+  display: block;
+  background-color: #003366;
+  padding: 4px;
+  color: #FFFFFF;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #FFFFFF;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: inset 6px 6px 4px #FFFFFF88, inset 0px 0px 40px #000000EE, 0px 0px 24px #003366, 10px 10px 10px #00000088;
+  text-shadow: 0px 0px 16px #00AAFF, 0px 0px 2px #000000;
+  margin-left: 32px;
+  margin-right: 32px;
+  width: 36px;
+  height: auto;
+  box-sizing: border-box;
+  margin-top: 8px;
+}
+
+.nav_button:hover{
+
+  background-color: #FFAA00;
+  box-shadow: inset 6px 6px 4px #FFFFFFFF, inset 0px 0px 40px #FF8800DD, 0px 0px 24px #FFEE00, 0px 0px 24px #FF0000;
+  color: #000000;
+  text-shadow: 0px 0px 16px #FF0000;
+  border-color: #AA0000;
+}
+
+.nav_button:focus{
+  outline: none;
+}
+
+.nav_button img, .nav_button_disabled img{
+  width: 24px;
+  height: auto;
+  margin: 0px;
+  vertical-align: middle;
+}
+
+.nav_button_disabled{
+  opacity: 0.4;
+  background-color: #888888;
+  cursor: default;
+}
+
+#first, #previous{
+  float: left;
+}
+
+#last, #next{
+  float: right;
+}
+
+@media (max-width: 740px){
+  
+  body{
+    margin-top: 240px;
+  }
+  
+  .panel, .card, .scroll{
+    width: 90%;
+    background-size: contain;
+  }
+  
+  .panel{
+    border-width: 0px;
+    box-shadow: none;
+    width: 100%;
+    height: auto;
+    background-color: transparent;
+    background-image: none !important;
+    margin-bottom: 44px;
+    padding: 0px;
+  }
+  
+  .panel_img{
+    display: block;
+    width: 90%;
+    height: auto;
+    margin: auto;
+    clear: both;
+  }
+  
+  .nav_button{
+    width: 64px;
+    height: auto;
+    margin: 4px;
+  }
+  
+  .nav_button img{
+    width: 54px;
+    height: auto;
+  }
+  
+  #fixed_header{
+    height: 140px;
+    white-space: nowrap;
+    overflow: visible;
+    min-width: 200px;
+  }
+  
+  #fixed_header select{
+    width: 95%;
+    font-size: 200%;
+    margin: auto;
+    margin-top: 86px;
+  }
+  
+  h1{
+    width: 90%;
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  
+  .textbox{
+    font-size: 80%;
+    width: 90%;
+    height: auto;
+    min-height: 100px;
+    margin: auto;
+    margin-top: 16px;
+    border-radius: 2px;
+    box-sizing: border-box;
+  }
+  
+}
