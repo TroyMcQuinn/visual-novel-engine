@@ -107,7 +107,7 @@ $base = getBaseURL();
       $index = '';
       foreach($frame as $n => $element){
         if((strpos($n,'layer') !== false) || (strpos($n,'background') !== false)){
-          $index .= $n.':'.$element.'|';
+          $index .= md5(print_r($frame,1));
         }
       }
       if(!empty($index)){
@@ -122,7 +122,7 @@ $base = getBaseURL();
       $index = '';
       foreach($frame as $n => $element){
         if((strpos($n,'layer') !== false) || (strpos($n,'background') !== false)){
-          $index .= $n.':'.$element.'|';
+          $index .= md5(print_r($frame,1));
         }
       }
       return (isset($prev_frames[$index])) ? $prev_frames[$index] : false;
