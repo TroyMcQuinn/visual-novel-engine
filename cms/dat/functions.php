@@ -283,6 +283,10 @@ function showScriptEditor($d,$new=false){
     $o .= "<textarea id=\"script_{$id}_notes\" name=\"script[$id][notes]\" >$notes</textarea>";
     $o .= "</td></tr>";
     
+    // Clickable Link
+    $link = !empty($frame['link']) ? $frame['link'] : '';
+    $o .= "<tr><td>Clickable Link</td><td id=\"current_link_$id\"></td><td><input type=\"text\" id=\"script_{$id}_link\" name=\"script[$id][link]\" value=\"$link\" onchange=\"$onchange\" /></td></tr>";
+    
     // Text
     $title = !empty($frame['title']) ? $frame['title'] : '';
     $text = !empty($frame['text']) ? $frame['text'] : '';
@@ -316,7 +320,7 @@ function buildScript(){
   
   $d = $_POST['script'];
   $o = [];
-  
+
   // echo "<pre>".print_r($d,1)."</pre>\n"; exit();
   
   if(isset($d['TEMPLATEID'])) unset($d['TEMPLATEID']);
@@ -341,7 +345,7 @@ function buildScript(){
     }
     
     // Everything else.
-    $items = ['background', 'music','sfx','video','card','title','text','fade','scroll','notes'];
+    $items = ['background', 'music','sfx','video','card','title','text','fade','scroll','notes','link'];
     foreach($items as $item){
       if(!empty($frame[$item])){
         if($item == 'scroll'){
