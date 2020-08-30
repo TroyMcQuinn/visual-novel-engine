@@ -319,6 +319,15 @@ function playScript(pos){
       }
     }
     
+    // Handle clickable link assignment
+    if(frame.link){
+      if(frame.link != 'clear'){
+        setClickableLink(frame.link);
+      } else {
+        unsetClickableLink();
+      }
+    }
+    
   } else {
     
     return false;
@@ -977,6 +986,17 @@ function loadProgress(){
     document.getElementById('sfx_volume').value = saveData.sfxv;
     document.getElementById('message_speed').value = 50 - msg_speed;
   }
+}
+
+function setClickableLink(x){
+  var clickableLayer = document.getElementById('stage');
+  clickableLayer.setAttribute('onclick',"window.open('" + x + "','_blank');");
+  
+}
+
+function unsetClickableLink(){
+  var clickableLayer = document.getElementById('stage');
+  clickableLayer.removeAttribute('onclick');  
 }
 
 /*
