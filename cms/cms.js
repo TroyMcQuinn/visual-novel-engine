@@ -14,7 +14,8 @@ function resetCurrents(){
     'video':'',
     'card':'',
     'scroll':'',
-    'fade':''  
+    'fade':'',
+    'link':''
   };
   return template;
 }
@@ -57,7 +58,7 @@ function updateEditor(active_frame_id){
       
       // Show earlier-set fields.
       for(var c in currents){
-        
+               
         // Get earlier-set fields.
         if(c == 'layers'){
           for(var i=0;i<6;i++){
@@ -71,13 +72,13 @@ function updateEditor(active_frame_id){
         
         // Set currently-set if not left blank.
         if(c == 'layers'){
-          for(var i=0;i<6;i++){
+          for(var i=0;i<=6;i++){
             if(el('script_' + frame + '_layers_' + i + '_image')){
               if(el('script_' + frame + '_layers_' + i + '_image').value != '') currents[c][i] = el('script_' + frame + '_layers_' + i + '_image').value;
             }
           }
         } else if(c == 'tweaks'){
-          for(var i=0;i<6;i++){
+          for(var i=0;i<=6;i++){
             var k = i+1;
             if(el('script_' + frame + '_layers_' + k + '_tweaks_x')){
               if((el('script_' + frame + '_layers_' + k + '_tweaks_x').value != '') && (el('script_' + frame + '_layers_' + k + '_tweaks_y').value != '')){
